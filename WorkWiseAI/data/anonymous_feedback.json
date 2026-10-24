@@ -1,0 +1,153 @@
+[
+  {
+    "feedbackId": "FB-2026-00101",
+    "timestamp": "2026-10-23T10:15:30.000Z",
+    "primaryTheme": "Workload & Process",
+    "strengths": "Great collaborative spirit across engineering teams and proactive code reviews.",
+    "areasForImprovement": "Sprint workloads are frequently overloaded right before deadlines, causing overtime burnout.",
+    "tags": [
+      "Workload",
+      "Teamwork",
+      "Process"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-00102",
+    "timestamp": "2026-10-23T11:42:15.000Z",
+    "primaryTheme": "Communication & Tools",
+    "strengths": "Supportive leadership team and clear design system guidance.",
+    "areasForImprovement": "Cross-functional updates between product and marketing need earlier alignment meetings.",
+    "tags": [
+      "Communication",
+      "Leadership"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-04FD94",
+    "timestamp": "2026-10-23T09:56:55.581Z",
+    "primaryTheme": "Communication & Transparency",
+    "strengths": "Strong camaraderie and clear sprint objectives.",
+    "areasForImprovement": "Need better documentation on API endpoints.",
+    "tags": [
+      "Communication",
+      "Documentation"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-5361F1",
+    "timestamp": "2026-10-23T09:57:15.329Z",
+    "primaryTheme": "Communication & Transparency",
+    "strengths": "Strong camaraderie and clear sprint objectives.",
+    "areasForImprovement": "Need better documentation on API endpoints.",
+    "tags": [
+      "Communication",
+      "Documentation"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-09836A",
+    "timestamp": "2026-10-23T09:58:30.347Z",
+    "primaryTheme": "Communication & Transparency",
+    "strengths": "Strong camaraderie and clear sprint objectives.",
+    "areasForImprovement": "Need better documentation on API endpoints.",
+    "tags": [
+      "Communication",
+      "Documentation"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-FDC8AE",
+    "timestamp": "2026-10-23T10:12:08.114Z",
+    "primaryTheme": "Communication & Transparency",
+    "strengths": "Strong camaraderie and clear sprint objectives.",
+    "areasForImprovement": "Need better cross-team alignment.",
+    "tags": [
+      "Communication"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-AFC7DC",
+    "timestamp": "2026-10-23T10:12:08.116Z",
+    "primaryTheme": "General Workplace Culture",
+    "strengths": "Excellent leadership support.",
+    "areasForImprovement": "None provided",
+    "tags": [
+      "Workplace"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-503A30",
+    "timestamp": "2026-10-23T10:12:32.445Z",
+    "primaryTheme": "Communication & Transparency",
+    "strengths": "Strong camaraderie and clear sprint objectives.",
+    "areasForImprovement": "Need better cross-team alignment.",
+    "tags": [
+      "Communication"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-8292FF",
+    "timestamp": "2026-10-23T10:12:32.446Z",
+    "primaryTheme": "General Workplace Culture",
+    "strengths": "Excellent leadership support.",
+    "areasForImprovement": "None provided",
+    "tags": [
+      "Workplace"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-052BDA",
+    "timestamp": "2026-10-23T10:17:01.451Z",
+    "primaryTheme": "Workload, Burnout & Work-Life Balance",
+    "strengths": "Strong teamwork and clear communication.",
+    "areasForImprovement": "Need better workload distribution during sprints.",
+    "tags": [
+      "Workload",
+      "Teamwork"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-0449CD",
+    "timestamp": "2026-10-23T10:17:01.453Z",
+    "primaryTheme": "General Workplace Culture",
+    "strengths": "Excellent leadership support.",
+    "areasForImprovement": "None provided",
+    "tags": [
+      "Workplace"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-AA7919",
+    "timestamp": "2026-10-23T10:17:17.241Z",
+    "primaryTheme": "Workload, Burnout & Work-Life Balance",
+    "strengths": "Strong teamwork and clear communication.",
+    "areasForImprovement": "Need better workload distribution during sprints.",
+    "tags": [
+      "Workload",
+      "Teamwork"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-71EEB7",
+    "timestamp": "2026-10-23T10:17:17.243Z",
+    "primaryTheme": "General Workplace Culture",
+    "strengths": "Excellent leadership support.",
+    "areasForImprovement": "None provided",
+    "tags": [
+      "Workplace"
+    ]
+  },
+  {
+    "feedbackId": "FB-2026-B0AE54",
+    "timestamp": "2026-10-23T19:57:14.821Z",
+    "primaryTheme": "General Workplace Culture",
+    "strengths": "Team members cooperate well, communication is improving, and colleagues support each other.",
+    "areasForImprovement": "Clearer priorities, better workload distribution, and more regular feedback from managers would improve the workplace.",
+    "tags": [
+      "Communication",
+      "Teamwork",
+      "Leadership",
+      "Workload"
+    ]
+  }
+]

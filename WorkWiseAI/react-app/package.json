@@ -1,0 +1,11 @@
+{
+  "name": "workwise-ai-frontend",
+  "version": "1.0.0",
+  "description": "WorkWise AI - React frontend for workplace assessment",
+  "scripts": {
+    "setup": "node setup.js",
+    "dev": "node dev-server.js"
+  },
+  "author": "Member 2 - NEWTHON Hackathon",
+  "license": "ISC"
+}

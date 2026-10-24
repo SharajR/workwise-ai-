@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkWise AI - Assessment History</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/" class="nav-brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WorkWise AI</h1>
+          <span class="brand-badge">Member 2 • Assessment Module</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="/" class="nav-link">
+          <span>📝</span> Survey Form
+        </a>
+        <a href="/history" class="nav-link active">
+          <span>📊</span> Assessment History
+        </a>
+      </div>
+
+      <!-- Anonymity Protection Status -->
+      <div class="user-pill" style="border-color: #86efac; background: #f0fdf4;">
+        <div class="user-avatar" style="background: #10b981;">🛡️</div>
+        <div class="user-info">
+          <span class="user-name" style="color: #065f46;">Anonymous Survey</span>
+          <span class="user-role" style="color: #047857;">Zero Names or Emails Collected</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Page Header -->
+      <header class="page-header" style="text-align: left; margin-bottom: 24px;">
+        <h2>Workplace Assessment History & Intelligence</h2>
+        <p>Review submitted assessments, monitor department benchmarks, and explore decoupled qualitative feedback.</p>
+      </header>
+
+      <!-- Overview Stats Cards -->
+      <section class="stats-overview-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue">📁</div>
+          <div class="stat-meta">
+            <h4>Total Submissions</h4>
+            <div class="stat-number" id="stat-total-count">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">📈</div>
+          <div class="stat-meta">
+            <h4>Org Average Score</h4>
+            <div class="stat-number" id="stat-avg-score">0%</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon purple">🏆</div>
+          <div class="stat-meta">
+            <h4>Top Competency</h4>
+            <div class="stat-number" style="font-size: 16px; margin-top: 4px;" id="stat-top-category">—</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon amber">🎯</div>
+          <div class="stat-meta">
+            <h4>Priority Focus Area</h4>
+            <div class="stat-number" style="font-size: 16px; margin-top: 4px;" id="stat-focus-category">—</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- History Tabs Switcher -->
+      <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--slate-200); padding-bottom: 12px;">
+        <button id="tab-assessments-btn" class="btn btn-secondary active" style="font-size: 13.5px; padding: 8px 18px;">
+          📋 Submitted Assessments
+        </button>
+        <button id="tab-feedback-btn" class="btn btn-secondary" style="font-size: 13.5px; padding: 8px 18px;">
+          🔒 Decoupled Anonymous Feedback
+        </button>
+      </div>
+
+      <!-- ================= SECTION 1: ASSESSMENTS TABLE ================= -->
+      <section id="view-assessments">
+        <!-- Controls: Search & Filter -->
+        <div class="history-controls">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" class="form-control" placeholder="Search by Assessment ID, department, or experience...">
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="dept-filter" style="font-size: 13px; font-weight: 600; color: var(--slate-600);">Department:</label>
+            <select id="dept-filter" class="form-control" style="width: auto; min-width: 180px;">
+              <option value="All">All Departments</option>
+              <option value="Engineering">Engineering</option>
+              <option value="HR">HR</option>
+              <option value="Sales">Sales</option>
+              <option value="Operations">Operations</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Assessment ID</th>
+                <th>Submission Time</th>
+                <th>Department</th>
+                <th>Experience</th>
+                <th>Overall Score</th>
+                <th>Feedback Note</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="assessments-tbody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+
+          <div id="empty-state" style="display: none; padding: 48px; text-align: center; color: var(--slate-400);">
+            <div style="font-size: 32px; margin-bottom: 8px;">📋</div>
+            <p style="font-weight: 600;">No assessments matched your query.</p>
+            <p style="font-size: 13px;">Try clearing your search filters or submit a new assessment.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION 2: ANONYMOUS FEEDBACK STREAM ================= -->
+      <section id="view-feedback" style="display: none;">
+        <div class="privacy-callout" style="margin-bottom: 20px;">
+          <div class="privacy-icon">🛡️</div>
+          <div>
+            <h4>Employee Identity Shield</h4>
+            <p>
+              In strict compliance with privacy standards, these written feedback entries are stripped of all identity data (names, emails, user IDs).
+              They are mapped solely to anonymized thematic categories to assist leadership and Member 3's AI Analysis engine in identifying organization-wide patterns.
+            </p>
+          </div>
+        </div>
+
+        <div id="feedback-list-container">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Assessment Breakdown Modal -->
+  <div id="details-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span>📊</span>
+          <h3 id="modal-title">Assessment Breakdown: <span id="modal-asmt-id" style="font-family: monospace; color: var(--primary);"></span></h3>
+        </div>
+        <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-detail-content">
+        <!-- Injected via history.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/history.js"></script>
+</body>
+</html>

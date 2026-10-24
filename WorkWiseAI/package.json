@@ -1,0 +1,19 @@
+{
+  "name": "workwise-ai-assessment-module",
+  "version": "1.0.0",
+  "description": "WorkWise AI Workplace Assessment Module for NEWTHON Hackathon (Member 2)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test_assessment.js"
+  },
+  "keywords": [
+    "workplace-assessment",
+    "survey",
+    "employee-experience",
+    "workwise-ai",
+    "newthon"
+  ],
+  "author": "Member 2",
+  "license": "ISC"
+}

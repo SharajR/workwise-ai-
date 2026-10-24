@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkWise AI - Workplace Assessment Survey</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/" class="nav-brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WorkWise AI</h1>
+          <span class="brand-badge">Member 2 • Assessment Module</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="/" class="nav-link active">
+          <span>📝</span> Survey Form
+        </a>
+        <a href="/history" class="nav-link">
+          <span>📊</span> Assessment History
+        </a>
+      </div>
+
+      <!-- Anonymity Protection Status -->
+      <div class="user-pill" style="border-color: #86efac; background: #f0fdf4;">
+        <div class="user-avatar" style="background: #10b981;">🛡️</div>
+        <div class="user-info">
+          <span class="user-name" style="color: #065f46;">Anonymous Survey</span>
+          <span class="user-role" style="color: #047857;">Zero Names or Emails Collected</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Page Header -->
+      <header class="page-header">
+        <h2>Workplace Culture & Health Assessment</h2>
+        <p>Complete this 3-step structured evaluation to gauge team dynamics, leadership support, and workload balance across your department.</p>
+      </header>
+
+      <!-- Multi-Step Progress Indicator -->
+      <div class="stepper-card">
+        <div class="stepper-header">
+          <div class="stepper-progress-bg">
+            <div class="stepper-progress-bar" id="stepper-progress-bar"></div>
+          </div>
+
+          <div class="step-item active" data-step="1">
+            <div class="step-circle">1</div>
+            <span class="step-label">Basic Information</span>
+            <span class="step-desc">Department & Role</span>
+          </div>
+
+          <div class="step-item" data-step="2">
+            <div class="step-circle">2</div>
+            <span class="step-label">Workplace Ratings</span>
+            <span class="step-desc">5 Core Competencies</span>
+          </div>
+
+          <div class="step-item" data-step="3">
+            <div class="step-circle">3</div>
+            <span class="step-label">Anonymous Feedback</span>
+            <span class="step-desc">Review & Submit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert / Error Banner -->
+      <div id="alert-banner" class="alert-banner" role="alert">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-content">
+          <h4 id="alert-title">Incomplete Form</h4>
+          <div id="alert-message">Please fill in all required fields.</div>
+        </div>
+      </div>
+
+      <!-- Survey Form Container -->
+      <div id="survey-form-container">
+
+        <!-- ================= STEP 1: BASIC INFORMATION ================= -->
+        <section id="step-1" class="form-step active">
+          <!-- Anonymity Protection Notice -->
+          <div class="privacy-callout" style="margin-bottom: 20px;">
+            <div class="privacy-icon">🛡️</div>
+            <div>
+              <h4>100% Anonymous Workplace Survey</h4>
+              <p>
+                To guarantee uncompromised psychological safety, this survey <strong>does not collect your name, email, or employee ID</strong>. 
+                Only aggregate department and experience tier data are gathered for high-level organizational insights.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">🏢</span>
+              <span>Step 1: Basic Information</span>
+            </div>
+            <p class="card-subtitle">Select your department and experience range. No personal identifying information is collected.</p>
+
+            <div class="form-grid">
+              <!-- Department Selection -->
+              <div class="form-group">
+                <label for="dept-select" class="form-label">
+                  Department <span class="required-star">*</span>
+                </label>
+                <select id="dept-select" class="form-control" required>
+                  <option value="" disabled selected>Select your department...</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="HR">HR</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Operations">Operations</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select your department.</div>
+              </div>
+
+              <!-- Other Department Custom Specification (shown only if Other selected) -->
+              <div class="form-group" id="dept-other-group" style="display: none;">
+                <label for="dept-other-input" class="form-label">
+                  Specify Department (No personal names) <span class="required-star">*</span>
+                </label>
+                <input type="text" id="dept-other-input" class="form-control" placeholder="e.g. Marketing, Legal, Finance, Customer Success">
+                <div class="invalid-feedback">Please specify your department name.</div>
+              </div>
+
+              <!-- Experience Range Selection -->
+              <div class="form-group">
+                <label for="exp-select" class="form-label">
+                  Experience <span class="required-star">*</span>
+                </label>
+                <select id="exp-select" class="form-control" required>
+                  <option value="" disabled selected>Select your experience tier...</option>
+                  <option value="Less than 1 year">Less than 1 year</option>
+                  <option value="1–3 years">1–3 years</option>
+                  <option value="4–6 years">4–6 years</option>
+                  <option value="7+ years">7+ years</option>
+                </select>
+                <div class="invalid-feedback">Please select your experience range.</div>
+              </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar" style="justify-content: flex-end;">
+              <button type="button" id="btn-step1-next" class="btn btn-primary">
+                Continue to Workplace Ratings ➔
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= STEP 2: WORKPLACE RATING QUESTIONS ================= -->
+        <section id="step-2" class="form-step">
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <div class="card-title" style="margin-bottom: 0;">
+                <span class="card-icon">📊</span>
+                <span>Step 2: Workplace Health & Competency Ratings</span>
+              </div>
+              <span id="answered-counter" style="font-size: 13px; color: var(--slate-400); font-weight: 600;">
+                0 of 5 questions answered
+              </span>
+            </div>
+            <p class="card-subtitle">
+              Rate each statement on our standardized <strong>1–5 scale</strong>: 
+              <span style="display: inline-flex; gap: 8px; margin-left: 6px; font-size: 12px; color: var(--slate-700);">
+                <span><strong>1</strong>=Strongly Disagree</span> • 
+                <span><strong>2</strong>=Disagree</span> • 
+                <span><strong>3</strong>=Neutral</span> • 
+                <span><strong>4</strong>=Agree</span> • 
+                <span><strong>5</strong>=Strongly Agree</span>
+              </span>
+            </p>
+
+            <!-- Dynamic Category Questions -->
+            <div id="questions-container">
+              <!-- Dynamically populated from questionnaire schema -->
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar">
+              <button type="button" id="btn-step2-back" class="btn btn-secondary">
+                ← Back to Basic Information
+              </button>
+              <button type="button" id="btn-step2-next" class="btn btn-primary">
+                Proceed to Anonymous Feedback ➔
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= STEP 3: ANONYMOUS FEEDBACK & REVIEW ================= -->
+        <section id="step-3" class="form-step">
+          <!-- Anonymity Privacy Callout -->
+          <div class="privacy-callout">
+            <div class="privacy-icon">🔒</div>
+            <div>
+              <h4>Strict Privacy & Anonymity Decoupling</h4>
+              <p>
+                Your written comments are stored in an isolated feedback repository with <strong>zero link</strong> to your name, email, or employee record.
+                Our Member 3 AI engine analyzes recurring sentiment themes (Communication, Teamwork, Leadership, Workload, Training) in total confidentiality.
+              </p>
+            </div>
+          </div>
+
+          <!-- Anonymous Comments Card -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">💬</span>
+              <span>Anonymous Qualitative Workplace Feedback</span>
+            </div>
+            <p class="card-subtitle">Share honest, constructive perspectives that aggregate statistics might miss.</p>
+
+            <div class="form-group">
+              <label for="feedback-theme" class="form-label">
+                Primary Feedback Focus Area
+              </label>
+              <select id="feedback-theme" class="form-control">
+                <option value="General Workplace Culture">General Workplace Culture</option>
+                <option value="Communication & Transparency">Communication & Transparency</option>
+                <option value="Team Collaboration & Morale">Team Collaboration & Morale</option>
+                <option value="Leadership Guidance & Direction">Leadership Guidance & Direction</option>
+                <option value="Workload, Burnout & Work-Life Balance">Workload, Burnout & Work-Life Balance</option>
+                <option value="Learning, Training & Growth">Learning, Training & Growth</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-strengths" class="form-label">
+                🌱 What is working well in your day-to-day team environment? (Optional)
+              </label>
+              <textarea id="feedback-strengths" class="form-control" rows="3" placeholder="Highlight positive behaviors, collaborative practices, or recent managerial support..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-improvement" class="form-label">
+                ⚡ What are the top areas causing friction or where change is needed? (Optional)
+              </label>
+              <textarea id="feedback-improvement" class="form-control" rows="3" placeholder="Describe blockers, unclear priorities, meeting overhead, or workload pressures..."></textarea>
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;">
+              <label class="form-label">Related Feedback Tags:</label>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px; font-size: 13px;">
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="checkbox" class="theme-checkbox" value="Communication"> Communication
+                </label>
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="checkbox" class="theme-checkbox" value="Teamwork"> Teamwork
+                </label>
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="checkbox" class="theme-checkbox" value="Leadership"> Leadership
+                </label>
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="checkbox" class="theme-checkbox" value="Workload"> Workload
+                </label>
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                  <input type="checkbox" class="theme-checkbox" value="Training"> Training
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pre-Submission Response Review Panel -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">📋</span>
+              <span>Summary Review Before Final Submission</span>
+            </div>
+            <p class="card-subtitle">Review your responses before locking in your assessment record.</p>
+
+            <div class="review-panel">
+              <div class="review-grid">
+                <div class="review-stat-item">
+                  <div class="review-stat-label">Department</div>
+                  <div class="review-stat-val" id="rev-dept">—</div>
+                </div>
+                <div class="review-stat-item">
+                  <div class="review-stat-label">Experience Tier</div>
+                  <div class="review-stat-val" id="rev-exp">—</div>
+                </div>
+                <div class="review-stat-item">
+                  <div class="review-stat-label">Privacy Shield</div>
+                  <div class="review-stat-val" style="color: #059669; font-size: 13px;">🔒 100% Anonymous</div>
+                </div>
+                <div class="review-stat-item">
+                  <div class="review-stat-label">Estimated Overall Score</div>
+                  <div class="review-stat-val" style="color: var(--primary);" id="rev-overall-score">—</div>
+                </div>
+              </div>
+
+              <h4 style="font-size: 13px; font-weight: 700; color: var(--slate-700); margin-bottom: 12px; text-transform: uppercase;">
+                Competency Breakdown
+              </h4>
+              <div class="category-score-bars" id="review-score-bars">
+                <!-- Dynamically populated score bars -->
+              </div>
+            </div>
+
+            <!-- Confirmation Checkbox -->
+            <div style="margin-top: 20px; padding: 14px 16px; background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-sm);">
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--slate-800);">
+                <input type="checkbox" id="confirm-accuracy" required style="width: 17px; height: 17px;">
+                <span>I confirm that these responses represent my genuine workplace experience.</span>
+              </label>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar">
+              <button type="button" id="btn-step3-back" class="btn btn-secondary">
+                ← Back to Ratings
+              </button>
+              <button type="button" id="btn-submit-assessment" class="btn btn-primary" style="padding: 12px 32px;">
+                ✓ Submit Workplace Assessment
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ================= SUCCESS SCREEN ================= -->
+      <section id="success-card" class="card success-card">
+        <div class="success-icon-ring">✓</div>
+        <h3 style="font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 8px;">
+          Assessment Successfully Submitted!
+        </h3>
+        <p style="color: var(--slate-600); max-width: 520px; margin: 0 auto 20px auto;">
+          Thank you for providing your feedback. Your structured evaluation has been logged securely, and your anonymous commentary is decoupled for privacy.
+        </p>
+
+        <div class="success-id-box">
+          <div class="success-id-row">
+            <span style="color: var(--slate-400);">Unique Assessment ID:</span>
+            <strong id="success-id" style="font-family: monospace; color: var(--primary);">ASMT-2026-XXXXX</strong>
+          </div>
+          <div class="success-id-row">
+            <span style="color: var(--slate-400);">Submission Timestamp:</span>
+            <span id="success-timestamp" style="font-weight: 600;">—</span>
+          </div>
+          <div class="success-id-row">
+            <span style="color: var(--slate-400);">Computed Overall Score:</span>
+            <strong id="success-overall-score" style="color: var(--success); font-size: 15px;">—</strong>
+          </div>
+          <div class="success-id-row">
+            <span style="color: var(--slate-400);">Anonymity Status:</span>
+            <span style="color: #059669; font-weight: 600;">Decoupled & Confidential</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+          <a href="/history" class="btn btn-primary">
+            <span>📊</span> View in Assessment History
+          </a>
+          <button type="button" id="btn-reset-survey" class="btn btn-secondary">
+            <span>📝</span> Take Another Assessment
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Script references -->
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
